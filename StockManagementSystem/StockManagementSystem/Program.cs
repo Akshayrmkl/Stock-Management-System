@@ -17,7 +17,8 @@ namespace StockManagementSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new LoginForm());
+            //Application.Run(new LoginForm());
+            Application.Run(new FirstForm());
             //Application.Run(new HomeForm());
             //Application.Run(new CategorySetupForm());
             //Application.Run(new CompanySetupForm());
