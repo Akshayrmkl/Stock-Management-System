@@ -54,7 +54,7 @@ namespace StockManagementSystem
             sqlConnection.Close();
         }
 
-        private void FirstForm_button_Parse_Click(object sender, EventArgs e)
+        private void FirstForm_button_Parse_Click_old(object sender, EventArgs e)
         {
             commandString =  "SET SHOWPLAN_XML ON; " ;
             sqlCommand = new SqlCommand(commandString, sqlConnection);
@@ -68,6 +68,46 @@ namespace StockManagementSystem
             sqlConnection.Close();
         }
 
-     
+        private void FirstForm_button_Parse_Click_old2(object sender, EventArgs e)
+        {
+            commandString = "SET SHOWPLAN_XML ON; ";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlCommand.ExecuteNonQuery();
+            commandString = richTextBox_sqlQuery.Text.ToString();
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            List<String> subscriptions = new List<String>();
+            do
+            {
+                subscriptions.Add((string)reader["Microsoft SQL Server 2005 XML Showplan"]);
+            }
+            while (reader.NextResult());
+            sqlConnection.Close();
+        }
+
+        private void FirstForm_button_Parse_Click(object sender, EventArgs e)
+        {
+            commandString = "SET SHOWPLAN_XML ON; ";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlCommand.ExecuteNonQuery();
+            commandString = richTextBox_sqlQuery.Text.ToString();
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            DataSet dataset = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = sqlCommand;
+            adapter.SelectCommand.CommandType = CommandType.Text;
+            adapter.Fill(dataset);
+            foreach (DataTable dt in dataset.Tables)
+            {
+                MessageBox.Show(dt.Rows[0][0].ToString());
+            }
+
+
+            sqlConnection.Close();
+        }
     }
+
 }
