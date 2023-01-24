@@ -11,7 +11,18 @@
 --Id int primary key identity(1,1),
 --FullQueryXmlPlan varchar(max)
 --)
-SET SHOWPLAN_XML off;
+--create table XmlPlanTags
+--(
+--TagName varchar(500) not null unique,
+--isIgnorable bit not null
+--)
+SET STATISTICS XML ON;
+
+drop table if exists #t
+select * 
+into #t
+from information_schema.tables
+select * from #t
 
 select 1 as g
 go
