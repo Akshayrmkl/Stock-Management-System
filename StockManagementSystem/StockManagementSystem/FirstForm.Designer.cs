@@ -28,11 +28,11 @@
             // 
             // richTextBox_sqlQuery
             // 
-            this.richTextBox_sqlQuery.Location = new System.Drawing.Point(159, 78);
+            this.richTextBox_sqlQuery.Location = new System.Drawing.Point(147, 78);
             this.richTextBox_sqlQuery.Name = "richTextBox_sqlQuery";
             this.richTextBox_sqlQuery.Size = new System.Drawing.Size(468, 161);
             this.richTextBox_sqlQuery.TabIndex = 0;
-            this.richTextBox_sqlQuery.Text = "";
+            this.richTextBox_sqlQuery.Text = "select * from information_schema.tables";
             // 
             // FirstForm_button_insertQuery
             // 

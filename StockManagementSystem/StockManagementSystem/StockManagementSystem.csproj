@@ -124,6 +124,7 @@
     <Compile Include="ViewForm.designer.cs">
       <DependentUpon>ViewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="xmlPlans\ShowPlanXML.cs" />
     <EmbeddedResource Include="CategorySetupForm.resx">
       <DependentUpon>CategorySetupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xmlPlans\XML_ex1.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

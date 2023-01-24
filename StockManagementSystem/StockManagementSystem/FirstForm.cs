@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace StockManagementSystem
 {
@@ -100,14 +101,29 @@ namespace StockManagementSystem
             adapter.SelectCommand = sqlCommand;
             adapter.SelectCommand.CommandType = CommandType.Text;
             adapter.Fill(dataset);
-            List<string> xmlPlanList = new List<string>();
+            List<string> xmlPlanListString = new List<string>();
             foreach (DataTable dt in dataset.Tables)
             {
-                xmlPlanList.Add(dt.Rows[0][0].ToString());
+                xmlPlanListString.Add(dt.Rows[0][0].ToString());
+            }
+            sqlConnection.Close();
+            List<ShowPlanXML> xmlPlanList = new List<ShowPlanXML>();
+            foreach (string str in xmlPlanListString)
+            {
+                XmlDocument doc = new XmlDocument();
+                var str2 = str; 
+                str2 = "<xml>" + str + "</xml>";
+                doc.LoadXml(str2);
+
+                commandString = "insert into FullQueryXmlPlan(FullQueryXmlPlan) select '" + str2  + "'";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+                MessageBox.Show("Parsed as xml plan and saved");
             }
 
 
-            sqlConnection.Close();
         }
     }
 
