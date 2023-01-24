@@ -100,9 +100,10 @@ namespace StockManagementSystem
             adapter.SelectCommand = sqlCommand;
             adapter.SelectCommand.CommandType = CommandType.Text;
             adapter.Fill(dataset);
+            List<string> xmlPlanList = new List<string>();
             foreach (DataTable dt in dataset.Tables)
             {
-                MessageBox.Show(dt.Rows[0][0].ToString());
+                xmlPlanList.Add(dt.Rows[0][0].ToString());
             }
 
 
