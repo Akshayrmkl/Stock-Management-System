@@ -53,5 +53,21 @@ namespace StockManagementSystem
             //sqlDataAdapter.Fill(dataTable);
             sqlConnection.Close();
         }
+
+        private void FirstForm_button_Parse_Click(object sender, EventArgs e)
+        {
+            commandString =  "SET SHOWPLAN_XML ON; " ;
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlCommand.ExecuteNonQuery();
+            commandString =  richTextBox_sqlQuery.Text.ToString();
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            dataTable = new DataTable();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+        }
+
+     
     }
 }

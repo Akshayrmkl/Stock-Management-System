@@ -23,6 +23,7 @@
         {
             this.richTextBox_sqlQuery = new System.Windows.Forms.RichTextBox();
             this.FirstForm_button_insertQuery = new System.Windows.Forms.Button();
+            this.FirstForm_button_Parse = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox_sqlQuery
@@ -37,10 +38,21 @@
             // 
             this.FirstForm_button_insertQuery.Location = new System.Drawing.Point(720, 78);
             this.FirstForm_button_insertQuery.Name = "FirstForm_button_insertQuery";
-            this.FirstForm_button_insertQuery.Size = new System.Drawing.Size(103, 48);
+            this.FirstForm_button_insertQuery.Size = new System.Drawing.Size(125, 58);
             this.FirstForm_button_insertQuery.TabIndex = 1;
+            this.FirstForm_button_insertQuery.Text = "insert into Db";
             this.FirstForm_button_insertQuery.UseVisualStyleBackColor = true;
             this.FirstForm_button_insertQuery.Click += new System.EventHandler(this.FirstForm_button_insertQuery_Click);
+            // 
+            // FirstForm_button_Parse
+            // 
+            this.FirstForm_button_Parse.Location = new System.Drawing.Point(720, 154);
+            this.FirstForm_button_Parse.Name = "FirstForm_button_Parse";
+            this.FirstForm_button_Parse.Size = new System.Drawing.Size(125, 58);
+            this.FirstForm_button_Parse.TabIndex = 2;
+            this.FirstForm_button_Parse.Text = "ParseDirectly";
+            this.FirstForm_button_Parse.UseVisualStyleBackColor = true;
+            this.FirstForm_button_Parse.Click += new System.EventHandler(this.FirstForm_button_Parse_Click);
             // 
             // FirstForm
             // 
@@ -48,6 +60,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(904, 500);
+            this.Controls.Add(this.FirstForm_button_Parse);
             this.Controls.Add(this.FirstForm_button_insertQuery);
             this.Controls.Add(this.richTextBox_sqlQuery);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -62,6 +75,7 @@
 
         private System.Windows.Forms.RichTextBox richTextBox_sqlQuery;
         private System.Windows.Forms.Button FirstForm_button_insertQuery;
+        private System.Windows.Forms.Button FirstForm_button_Parse;
     }
 }
 
