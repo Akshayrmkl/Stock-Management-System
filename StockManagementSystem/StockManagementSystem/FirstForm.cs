@@ -89,7 +89,7 @@ namespace StockManagementSystem
 
         private void FirstForm_button_Parse_Click(object sender, EventArgs e)
         {
-            commandString = "SET SHOWPLAN_XML ON; ";
+            commandString = "SET STATISTICS XML ON; ";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlCommand.ExecuteNonQuery();
@@ -104,7 +104,9 @@ namespace StockManagementSystem
             List<string> xmlPlanListString = new List<string>();
             foreach (DataTable dt in dataset.Tables)
             {
-                xmlPlanListString.Add(dt.Rows[0][0].ToString());
+                
+                if(dt.Rows.Count > 0)
+                        xmlPlanListString.Add(dt.Rows[0][0].ToString());
             }
             sqlConnection.Close();
             List<ShowPlanXML> xmlPlanList = new List<ShowPlanXML>();

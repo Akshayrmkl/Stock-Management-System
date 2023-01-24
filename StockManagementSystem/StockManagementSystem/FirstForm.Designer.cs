@@ -32,7 +32,7 @@
             this.richTextBox_sqlQuery.Name = "richTextBox_sqlQuery";
             this.richTextBox_sqlQuery.Size = new System.Drawing.Size(468, 161);
             this.richTextBox_sqlQuery.TabIndex = 0;
-            this.richTextBox_sqlQuery.Text = "select * from information_schema.tables";
+            this.richTextBox_sqlQuery.Text = "select * \ninto #t\nfrom information_schema.tables\nselect * from #t\n";
             // 
             // FirstForm_button_insertQuery
             // 
